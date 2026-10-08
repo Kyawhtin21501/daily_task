@@ -1,0 +1,72 @@
+:root { color-scheme: light; --ink: #243e36; --muted: #64776e; --green: #24594a; --line: #e1e8e2; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f7f3; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; font-size: 14px; line-height: 1.6; }
+button, input { font: inherit; }
+button { cursor: pointer; border: 0; transition: background .15s; }
+button:disabled { cursor: wait; opacity: .55; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #80ad9a; outline-offset: 3px; }
+input { min-width: 0; border: 1px solid #cad7cf; border-radius: 8px; padding: 12px 14px; background: #fff; color: var(--ink); }
+input::placeholder { color: #75847d; }
+[hidden] { display: none !important; }
+.app { max-width: 1080px; padding: 0 36px; margin: auto; }
+.header { height: 100px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 750; letter-spacing: -.6px; color: var(--ink); text-decoration: none; }
+.brand-icon { width: 33px; height: 33px; display: grid; place-items: center; background: var(--green); border-radius: 10px; color: white; font-size: 23px; }
+.header-note, .description { color: var(--muted); }
+main { max-width: 880px; margin: 56px auto 40px; }
+.eyebrow { font-size: 11px; letter-spacing: 2.5px; font-weight: 700; color: var(--green); margin: 0 0 12px; }
+h1 { font-size: clamp(24px, 4vw, 32px); letter-spacing: -.8px; line-height: 1.4; margin: 0 0 12px; }
+.description { margin: 0; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 32px 0; }
+.summary > div { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; }
+.summary span { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
+.summary strong { display: block; font-size: 32px; font-weight: 600; margin-top: 6px; line-height: 1.2; }
+.dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+.pending { background: #c6943d; }.complete { background: #509377; }
+.panel { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 6px 20px #253c3404; }
+.panel-heading { display: flex; align-items: center; justify-content: space-between; padding: 24px 26px 16px; gap: 12px; }
+h2 { font-size: 17px; margin: 0; }
+.text-button { background: transparent; color: var(--muted); padding: 8px; border-radius: 6px; font-size: 12px; }
+.text-button:hover { background: #edf3ef; }
+.add-form { display: flex; gap: 10px; padding: 0 26px 24px; }
+.add-form input { flex: 1; background: #fafcf9; }
+.primary { background: var(--green); color: white; border-radius: 8px; padding: 11px 20px; font-weight: 600; }
+.primary:hover { background: #184333; }
+.toolbar { padding: 16px 26px; border-block: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.filters { display: flex; background: #f3f6f2; border-radius: 7px; padding: 4px; }
+.filters button { background: transparent; color: var(--muted); border-radius: 5px; padding: 6px 16px; font-size: 12px; }
+.filters button[aria-pressed="true"] { background: white; color: var(--green); box-shadow: 0 1px 4px #243e3615; font-weight: 700; }
+.search input { width: 190px; font-size: 12px; padding: 9px 12px; }
+.task-list { padding: 0; margin: 0; list-style: none; }
+.task-row { display: flex; align-items: center; gap: 14px; padding: 18px 26px; border-bottom: 1px solid #eef1ed; }
+.task-check { width: 20px; height: 20px; flex-shrink: 0; margin: 0; accent-color: var(--green); cursor: pointer; }
+.task-title { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.task-row.is-done .task-title { text-decoration: line-through; color: var(--muted); }
+.task-actions { display: flex; gap: 4px; }
+.delete-button { color: #ab4c43; }
+.empty-state { text-align: center; padding: 48px 20px 52px; }
+.empty-icon { display: grid; place-items: center; margin: 0 auto 16px; width: 48px; height: 48px; border-radius: 14px; background: #eef3ec; color: #6a8875; font-size: 26px; }
+.empty-state h3 { font-size: 15px; margin: 0 0 8px; font-weight: 600; }
+.empty-state p { color: var(--muted); font-size: 12px; margin: 0; }
+.panel-footer { display: flex; justify-content: space-between; gap: 12px; background: #fcfdfa; border-top: 1px solid var(--line); padding: 15px 26px; color: var(--muted); font-size: 11px; }
+.status { color: var(--green); min-height: 24px; font-size: 13px; }
+.error { background: #fff2ec; border: 1px solid #efd2c4; border-radius: 8px; padding: 12px 16px; margin: 18px 26px; color: #8a3b2d; font-size: 13px; overflow-wrap: anywhere; }
+.footer { display: flex; justify-content: space-between; gap: 16px; padding: 24px 0; border-top: 1px solid var(--line); font-size: 10px; letter-spacing: 1.5px; color: var(--muted); }
+.footer span { letter-spacing: 0; }
+dialog { border: 1px solid var(--line); border-radius: 14px; padding: 28px; width: min(440px, calc(100% - 32px)); color: var(--ink); }
+dialog::backdrop { background: #102b2260; }
+dialog label { display: block; margin: 20px 0 8px; }
+dialog input { width: 100%; }
+dialog .error { margin: 14px 0; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 24px; }
+.secondary { padding: 11px 16px; background: #edf2ee; color: var(--ink); border-radius: 8px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 600px) {
+  .app { padding: 0 18px; }.header { height: 76px; }.header-note { font-size: 10px; }
+  main { margin-top: 32px; }.description { font-size: 12px; }
+  .summary { gap: 8px; margin: 24px 0; }.summary > div { padding: 15px 12px; }.summary span { font-size: 10px; }.summary strong { font-size: 26px; }
+  .panel-heading { padding: 18px 16px 12px; }.add-form { padding: 0 16px 18px; flex-direction: column; }
+  .toolbar { padding: 12px 16px; flex-wrap: wrap; }.search, .search input { width: 100%; }.filters { width: 100%; }.filters button { flex: 1; }
+  .task-row { padding: 16px; gap: 10px; }.task-actions { flex-direction: column; }.task-actions button { padding: 5px 8px; }
+  .panel-footer { padding: 14px 16px; }.panel-footer > span:last-child { display: none; }.error { margin: 16px; }
+}

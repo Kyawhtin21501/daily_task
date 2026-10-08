@@ -1,0 +1,8 @@
+# docker-compose.yaml
+services:
+  demo-app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/src

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24594a">
+  <title>Task Note | タスク管理</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <a class="brand" href="/" aria-label="Task Note ホーム"><span class="brand-icon" aria-hidden="true">✓</span> Task Note</a>
+      <span class="header-note">ひとつずつ、着実に。</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">MY WORKSPACE</p>
+        <h1 id="page-title">今日の一歩を、ここから。</h1>
+        <p class="description">やることを整理して、目の前のタスクに集中しましょう。</p>
+      </section>
+
+      <section class="summary" aria-label="タスクの集計">
+        <div><span>すべてのタスク</span><strong id="total-count">—</strong></div>
+        <div><span><i class="dot pending" aria-hidden="true"></i>未完了</span><strong id="pending-count">—</strong></div>
+        <div><span><i class="dot complete" aria-hidden="true"></i>完了</span><strong id="done-count">—</strong></div>
+      </section>
+
+      <section class="panel" aria-labelledby="list-heading">
+        <div class="panel-heading"><h2 id="list-heading">タスク一覧</h2><button id="refresh" class="text-button" type="button">↻ 再読み込み</button></div>
+        <form id="add-form" class="add-form">
+          <label class="sr-only" for="new-title">新しいタスク</label>
+          <input id="new-title" name="title" placeholder="次にやることを入力…" required autocomplete="off">
+          <button id="add-button" class="primary" type="submit">＋ タスクを追加</button>
+        </form>
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="表示するタスク">
+            <button type="button" data-filter="all" aria-pressed="true">すべて</button>
+            <button type="button" data-filter="pending" aria-pressed="false">未完了</button>
+            <button type="button" data-filter="done" aria-pressed="false">完了</button>
+          </div>
+          <label class="search"><span class="sr-only">タスクを検索</span><input id="search" type="search" placeholder="タスクを検索"></label>
+        </div>
+        <p id="error" class="error" role="alert" hidden></p>
+        <div id="task-area" aria-busy="true">
+          <ul id="task-list" class="task-list" aria-label="タスク"></ul>
+          <div id="empty-state" class="empty-state"><span class="empty-icon" aria-hidden="true">✓</span><h3 id="empty-title">タスクを読み込み中…</h3><p id="empty-description">しばらくお待ちください。</p></div>
+        </div>
+        <div class="panel-footer"><span id="result-count">読み込み中…</span><span>小さな完了が、大きな前進に。</span></div>
+      </section>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </main>
+    <footer class="footer">TASK NOTE <span>毎日を、少しずつ整える。</span></footer>
+  </div>
+
+  <dialog id="edit-dialog" aria-labelledby="edit-heading">
+    <form id="edit-form">
+      <h2 id="edit-heading">タスクを編集</h2>
+      <label for="edit-title">タスク名</label>
+      <input id="edit-title" name="title" required autocomplete="off">
+      <p id="edit-error" class="error" role="alert" hidden></p>
+      <div class="dialog-actions"><button type="button" id="cancel-edit" class="secondary">キャンセル</button><button type="submit" class="primary">保存する</button></div>
+    </form>
+  </dialog>
+  <noscript>このページを利用するにはJavaScriptを有効にしてください。</noscript>
+</body>
+</html>
